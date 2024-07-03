@@ -75,6 +75,7 @@
             Controls.Add(chooseFile);
             Name = "jsonConverter";
             Text = "JSON-Converter";
+            Load += jsonConverter_Load;
             ResumeLayout(false);
             PerformLayout();
         }
