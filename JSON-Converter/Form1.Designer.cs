@@ -32,12 +32,13 @@
             openFileDialog1 = new OpenFileDialog();
             fileNameBox = new TextBox();
             downloadExcelBtn = new Button();
+            label1 = new Label();
             SuspendLayout();
             // 
             // chooseFile
             // 
             chooseFile.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            chooseFile.Location = new Point(447, 51);
+            chooseFile.Location = new Point(483, 106);
             chooseFile.Name = "chooseFile";
             chooseFile.Size = new Size(120, 29);
             chooseFile.TabIndex = 0;
@@ -49,14 +50,14 @@
             // fileNameBox
             // 
             fileNameBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            fileNameBox.Location = new Point(12, 51);
+            fileNameBox.Location = new Point(39, 106);
             fileNameBox.Name = "fileNameBox";
             fileNameBox.Size = new Size(429, 27);
             fileNameBox.TabIndex = 1;
             // 
             // downloadExcelBtn
             // 
-            downloadExcelBtn.Location = new Point(190, 156);
+            downloadExcelBtn.Location = new Point(190, 209);
             downloadExcelBtn.Name = "downloadExcelBtn";
             downloadExcelBtn.Size = new Size(251, 37);
             downloadExcelBtn.TabIndex = 2;
@@ -65,17 +66,26 @@
             downloadExcelBtn.Visible = false;
             downloadExcelBtn.Click += downloadExcelBtn_Click;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(277, 27);
+            label1.Name = "label1";
+            label1.Size = new Size(104, 20);
+            label1.TabIndex = 3;
+            label1.Text = "JSON TO Excel";
+            // 
             // jsonConverter
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(653, 450);
+            Controls.Add(label1);
             Controls.Add(downloadExcelBtn);
             Controls.Add(fileNameBox);
             Controls.Add(chooseFile);
             Name = "jsonConverter";
             Text = "JSON-Converter";
-            Load += jsonConverter_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -86,5 +96,6 @@
         private OpenFileDialog openFileDialog1;
         private TextBox fileNameBox;
         private Button downloadExcelBtn;
+        private Label label1;
     }
 }
