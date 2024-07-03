@@ -166,11 +166,6 @@ namespace JSON_Converter
             }
 
         }
-
-        private void jsonConverter_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }
 
