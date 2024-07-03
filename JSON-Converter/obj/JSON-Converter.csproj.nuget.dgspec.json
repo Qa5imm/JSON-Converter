@@ -48,7 +48,7 @@
           "dependencies": {
             "EPPlus": {
               "target": "Package",
-              "version": "[7.2.1, )"
+              "version": "[6.2.0, )"
             }
           },
           "imports": [
