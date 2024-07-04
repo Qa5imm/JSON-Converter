@@ -186,7 +186,7 @@ namespace JSON_Converter
                 {
                     string selectedPath = folderBrowserDialog.SelectedPath;
                     string saveFilePath = Path.Combine(selectedPath, "output.xlsx");
-                    createFileLocally(generatedExcelFilePath, saveFilePath);
+                    File.Copy(generatedExcelFilePath, saveFilePath);
                     saveLink.Visible = false;
                     saveFileLabel.Visible = true;
                     generateExcelBtn.Enabled = false;
