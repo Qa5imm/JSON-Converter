@@ -187,11 +187,14 @@ namespace JSON_Converter
                     string selectedPath = folderBrowserDialog.SelectedPath;
                     string saveFilePath = Path.Combine(selectedPath, "output.xlsx");
                     File.Copy(generatedExcelFilePath, saveFilePath, true);
-                    saveLink.Visible = false;
-                    saveFileLabel.Visible = true;
                     generateExcelBtn.Enabled = false;
                 }
             }
+
+        }
+
+        private void saveFileLabel_Click(object sender, EventArgs e)
+        {
 
         }
     }

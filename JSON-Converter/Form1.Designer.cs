@@ -35,15 +35,14 @@
             label1 = new Label();
             saveLink = new LinkLabel();
             saveFileDialog1 = new SaveFileDialog();
-            saveFileLabel = new Label();
             SuspendLayout();
             // 
             // chooseFile
             // 
-            chooseFile.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            chooseFile.Location = new Point(483, 106);
+            chooseFile.Anchor = AnchorStyles.Top;
+            chooseFile.Location = new Point(541, 47);
             chooseFile.Name = "chooseFile";
-            chooseFile.Size = new Size(120, 29);
+            chooseFile.Size = new Size(135, 29);
             chooseFile.TabIndex = 0;
             chooseFile.Text = "Choose File";
             chooseFile.TextAlign = ContentAlignment.BottomCenter;
@@ -54,69 +53,57 @@
             // 
             fileNameBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             fileNameBox.Enabled = false;
-            fileNameBox.Location = new Point(39, 106);
+            fileNameBox.Location = new Point(23, 49);
             fileNameBox.Name = "fileNameBox";
             fileNameBox.PlaceholderText = "Choose analytics log file";
-            fileNameBox.Size = new Size(429, 27);
+            fileNameBox.Size = new Size(512, 27);
             fileNameBox.TabIndex = 1;
             // 
             // generateExcelBtn
             // 
             generateExcelBtn.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             generateExcelBtn.Enabled = false;
-            generateExcelBtn.Location = new Point(190, 209);
+            generateExcelBtn.Location = new Point(23, 136);
             generateExcelBtn.Name = "generateExcelBtn";
-            generateExcelBtn.Size = new Size(251, 37);
+            generateExcelBtn.Size = new Size(174, 29);
             generateExcelBtn.TabIndex = 2;
-            generateExcelBtn.Text = "Generate Excel";
+            generateExcelBtn.Text = "Generate Report";
             generateExcelBtn.UseVisualStyleBackColor = true;
             generateExcelBtn.Click += generateExcelBtn_Click;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(211, 19);
+            label1.Location = new Point(23, 26);
             label1.Name = "label1";
-            label1.Size = new Size(207, 20);
+            label1.Size = new Size(134, 20);
             label1.TabIndex = 3;
-            label1.Text = "Code Log Ananlytics Conveter";
+            label1.Text = "Select the logs file:";
             // 
             // saveLink
             // 
             saveLink.AutoSize = true;
-            saveLink.Location = new Point(198, 324);
+            saveLink.Location = new Point(292, 140);
             saveLink.Name = "saveLink";
-            saveLink.Size = new Size(243, 20);
+            saveLink.Size = new Size(257, 20);
             saveLink.TabIndex = 4;
             saveLink.TabStop = true;
-            saveLink.Text = "File Genenrated! Click here to save. ";
+            saveLink.Text = "Report Generated! Click here to save. ";
             saveLink.Visible = false;
             saveLink.LinkClicked += saveLink_LinkClicked;
-            // 
-            // saveFileLabel
-            // 
-            saveFileLabel.AutoSize = true;
-            saveFileLabel.ForeColor = Color.Blue;
-            saveFileLabel.Location = new Point(240, 354);
-            saveFileLabel.Name = "saveFileLabel";
-            saveFileLabel.Size = new Size(158, 20);
-            saveFileLabel.TabIndex = 5;
-            saveFileLabel.Text = "File saved successfully!";
-            saveFileLabel.Visible = false;
             // 
             // jsonConverter
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(653, 450);
-            Controls.Add(saveFileLabel);
+            ClientSize = new Size(751, 450);
             Controls.Add(saveLink);
             Controls.Add(label1);
             Controls.Add(generateExcelBtn);
             Controls.Add(fileNameBox);
             Controls.Add(chooseFile);
             Name = "jsonConverter";
-            Text = "Log Analytics Converter";
+            Text = "Code Qualtiy Analytics - Report Generator";
             ResumeLayout(false);
             PerformLayout();
         }
@@ -130,6 +117,5 @@
         private Label label1;
         private LinkLabel saveLink;
         private SaveFileDialog saveFileDialog1;
-        private Label saveFileLabel;
     }
 }
