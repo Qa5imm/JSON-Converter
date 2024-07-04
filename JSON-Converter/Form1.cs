@@ -2,34 +2,40 @@ using System.Diagnostics;
 using System.Security;
 using System.Text.Json;
 using OfficeOpenXml;
+using System.IO;
 
 namespace JSON_Converter
 {
     public partial class jsonConverter : Form
     {
-        private string inputFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "data.json");
-        private string templateFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "template.xlsx");
-        private string outputFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "output.xlsx");
+
+
+        //This will get the current WORKING directory
+        static string projectDir = Path.GetFullPath(@"..\..\..\");
+
+        private string jsonFilePath = Path.Combine(projectDir, "assets/data.json");
+        private string templateFilePath = Path.Combine(projectDir, "assets/template.xlsx");
+        private string generatedExcelFilePath = Path.Combine(projectDir, "assets/output.xlsx");
         public jsonConverter()
         {
             InitializeComponent();
         }
 
         // create a new file in the current folder
-        private void createFileLocally(string filePath)
+        private void createFileLocally(string readFilePath, string writeFilePath)
         {
             try
             {
                 string fileContent;
 
                 // Read the content of the selected JSON file
-                using (StreamReader reader = new StreamReader(filePath))
+                using (StreamReader reader = new StreamReader(readFilePath))
                 {
                     fileContent = reader.ReadToEnd();
                 }
 
                 // Create a new JSON file in the current directory with new content
-                using (StreamWriter writer = new StreamWriter(inputFilePath))
+                using (StreamWriter writer = new StreamWriter(writeFilePath))
                 {
                     writer.Write(fileContent);
                 }
@@ -60,10 +66,10 @@ namespace JSON_Converter
             {
                 if (openFileDialog1.FileName != "")
                 {
-                    var filePath = openFileDialog1.FileName;
-                    fileNameBox.Text = filePath;
-                    createFileLocally(filePath);
-                    downloadExcelBtn.Visible = true;
+                    var selectedFilePath = openFileDialog1.FileName;
+                    fileNameBox.Text = selectedFilePath;
+                    createFileLocally(selectedFilePath, jsonFilePath);
+                    generateExcelBtn.Enabled = true;
                 }
                 else
                 {
@@ -72,14 +78,13 @@ namespace JSON_Converter
             }
         }
 
-        private void downloadExcelBtn_Click(object sender, EventArgs e)
+        private void generateExcelBtn_Click(object sender, EventArgs e)
         {
+            Cursor = Cursors.WaitCursor; // change cursor to hourglass type
             convertJSONToExcel();
-            MessageBox.Show($"Excel file created at path: {outputFilePath}");
-
+            Cursor = Cursors.Arrow; // change cursor to normal type
+            saveLink.Visible = true;
         }
-        // write json to object logic here
-
 
         private void convertJSONToExcel()
         {
@@ -88,24 +93,25 @@ namespace JSON_Converter
 
                 // Reading the JSON file
 
-                var jsonText = File.ReadAllText(inputFilePath);
+
+                var jsonText = File.ReadAllText(jsonFilePath);
 
                 var data = JsonSerializer.Deserialize<Root>(jsonText);
 
                 // Copying template to new file
-                if (File.Exists(outputFilePath))
+                if (File.Exists(generatedExcelFilePath))
                 {
-                    File.SetAttributes(outputFilePath, FileAttributes.Normal);
-                    File.Delete(outputFilePath);
+                    File.SetAttributes(generatedExcelFilePath, FileAttributes.Normal);
+                    File.Delete(generatedExcelFilePath);
                 }
-                File.Copy(templateFilePath, outputFilePath, true);
+                File.Copy(templateFilePath, generatedExcelFilePath, true);
 
                 ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
 
                 int start_cell = 2;
 
                 // Load the copied file
-                FileInfo outputFile = new FileInfo(outputFilePath);
+                FileInfo outputFile = new FileInfo(generatedExcelFilePath);
 
 
                 using (ExcelPackage package = new ExcelPackage(outputFile))
@@ -163,6 +169,28 @@ namespace JSON_Converter
             catch (Exception ex)
             {
                 Console.WriteLine($"An unexpected error occurred: {ex.Message}");
+            }
+
+        }
+
+        private void saveLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            using (FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog())
+            {
+                folderBrowserDialog.Description = "Select a folder to save the log file.";
+                folderBrowserDialog.ShowNewFolderButton = true;
+
+                DialogResult result = folderBrowserDialog.ShowDialog();
+
+                if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(folderBrowserDialog.SelectedPath))
+                {
+                    string selectedPath = folderBrowserDialog.SelectedPath;
+                    string saveFilePath = Path.Combine(selectedPath, "output.xlsx");
+                    createFileLocally(generatedExcelFilePath, saveFilePath);
+                    saveLink.Visible = false;
+                    saveFileLabel.Visible = true;
+                    generateExcelBtn.Enabled = false;
+                }
             }
 
         }

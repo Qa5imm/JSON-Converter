@@ -31,8 +31,11 @@
             chooseFile = new Button();
             openFileDialog1 = new OpenFileDialog();
             fileNameBox = new TextBox();
-            downloadExcelBtn = new Button();
+            generateExcelBtn = new Button();
             label1 = new Label();
+            saveLink = new LinkLabel();
+            saveFileDialog1 = new SaveFileDialog();
+            saveFileLabel = new Label();
             SuspendLayout();
             // 
             // chooseFile
@@ -50,42 +53,70 @@
             // fileNameBox
             // 
             fileNameBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            fileNameBox.Enabled = false;
             fileNameBox.Location = new Point(39, 106);
             fileNameBox.Name = "fileNameBox";
+            fileNameBox.PlaceholderText = "Choose analytics log file";
             fileNameBox.Size = new Size(429, 27);
             fileNameBox.TabIndex = 1;
             // 
-            // downloadExcelBtn
+            // generateExcelBtn
             // 
-            downloadExcelBtn.Location = new Point(190, 209);
-            downloadExcelBtn.Name = "downloadExcelBtn";
-            downloadExcelBtn.Size = new Size(251, 37);
-            downloadExcelBtn.TabIndex = 2;
-            downloadExcelBtn.Text = "Download Excel";
-            downloadExcelBtn.UseVisualStyleBackColor = true;
-            downloadExcelBtn.Visible = false;
-            downloadExcelBtn.Click += downloadExcelBtn_Click;
+            generateExcelBtn.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            generateExcelBtn.Enabled = false;
+            generateExcelBtn.Location = new Point(190, 209);
+            generateExcelBtn.Name = "generateExcelBtn";
+            generateExcelBtn.Size = new Size(251, 37);
+            generateExcelBtn.TabIndex = 2;
+            generateExcelBtn.Text = "Generate Excel";
+            generateExcelBtn.UseVisualStyleBackColor = true;
+            generateExcelBtn.Click += generateExcelBtn_Click;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(277, 27);
+            label1.Location = new Point(211, 19);
             label1.Name = "label1";
-            label1.Size = new Size(104, 20);
+            label1.Size = new Size(207, 20);
             label1.TabIndex = 3;
-            label1.Text = "JSON TO Excel";
+            label1.Text = "Code Log Ananlytics Conveter";
+            // 
+            // saveLink
+            // 
+            saveLink.AutoSize = true;
+            saveLink.Location = new Point(198, 324);
+            saveLink.Name = "saveLink";
+            saveLink.Size = new Size(243, 20);
+            saveLink.TabIndex = 4;
+            saveLink.TabStop = true;
+            saveLink.Text = "File Genenrated! Click here to save. ";
+            saveLink.Visible = false;
+            saveLink.LinkClicked += saveLink_LinkClicked;
+            // 
+            // saveFileLabel
+            // 
+            saveFileLabel.AutoSize = true;
+            saveFileLabel.ForeColor = Color.Blue;
+            saveFileLabel.Location = new Point(240, 354);
+            saveFileLabel.Name = "saveFileLabel";
+            saveFileLabel.Size = new Size(158, 20);
+            saveFileLabel.TabIndex = 5;
+            saveFileLabel.Text = "File saved successfully!";
+            saveFileLabel.Visible = false;
             // 
             // jsonConverter
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(653, 450);
+            Controls.Add(saveFileLabel);
+            Controls.Add(saveLink);
             Controls.Add(label1);
-            Controls.Add(downloadExcelBtn);
+            Controls.Add(generateExcelBtn);
             Controls.Add(fileNameBox);
             Controls.Add(chooseFile);
             Name = "jsonConverter";
-            Text = "JSON-Converter";
+            Text = "Log Analytics Converter";
             ResumeLayout(false);
             PerformLayout();
         }
@@ -95,7 +126,10 @@
         private Button chooseFile;
         private OpenFileDialog openFileDialog1;
         private TextBox fileNameBox;
-        private Button downloadExcelBtn;
+        private Button generateExcelBtn;
         private Label label1;
+        private LinkLabel saveLink;
+        private SaveFileDialog saveFileDialog1;
+        private Label saveFileLabel;
     }
 }
