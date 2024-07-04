@@ -950,19 +950,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\QasimMehmood\\.nuget\\packages\\": {}
+    "C:\\Users\\MuhammadAsjalRashidi\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\QasimMehmood\\source\\repos\\JSON-Converter\\JSON-Converter\\JSON-Converter.csproj",
+      "projectUniqueName": "C:\\Users\\MuhammadAsjalRashidi\\OneDrive - Illumina Technology Solutions\\Documents\\Asjal\\JSON-Converter\\JSON-Converter\\JSON-Converter.csproj",
       "projectName": "JSON-Converter",
-      "projectPath": "C:\\Users\\QasimMehmood\\source\\repos\\JSON-Converter\\JSON-Converter\\JSON-Converter.csproj",
-      "packagesPath": "C:\\Users\\QasimMehmood\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\QasimMehmood\\source\\repos\\JSON-Converter\\JSON-Converter\\obj\\",
+      "projectPath": "C:\\Users\\MuhammadAsjalRashidi\\OneDrive - Illumina Technology Solutions\\Documents\\Asjal\\JSON-Converter\\JSON-Converter\\JSON-Converter.csproj",
+      "packagesPath": "C:\\Users\\MuhammadAsjalRashidi\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\MuhammadAsjalRashidi\\OneDrive - Illumina Technology Solutions\\Documents\\Asjal\\JSON-Converter\\JSON-Converter\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\QasimMehmood\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\MuhammadAsjalRashidi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -1018,7 +1023,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
