@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("JSON-Converter")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dd91780dee2e3577575b52264dcf264b3596cadc")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e0053ce31c2d1c77524b0008a6327c9afe3b1e43")]
 [assembly: System.Reflection.AssemblyProductAttribute("JSON-Converter")]
 [assembly: System.Reflection.AssemblyTitleAttribute("JSON-Converter")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
