@@ -125,13 +125,13 @@ namespace JSON_Converter
                         string guideline = "";
                         string? severity = obj.properties.severity;
                         string? sourceLocation = obj.locations[0]?.physicalLocation?.artifactLocation?.uri;
-                        int? line = obj.locations[0].physicalLocation.region.startLine;
-                        string? type = obj.properties.type;
-                        string? member = obj.properties.member;
+                        int? line = obj.locations[0]?.physicalLocation?.region?.startLine;
+                        string? type = obj.properties?.type;
+                        string? member = obj.properties?.member;
                         string? statement = obj.locations[0]?.physicalLocation?.region?.snippet?.text;
                         string? ruleId = obj.ruleId;
-                        string? message = obj.message.text;
-                        string guidance_url = data.runs[0].tool.driver.rules[obj.ruleIndex].helpUri;
+                        string? message = obj.message?.text;
+                        string? guidance_url = data.runs[0]?.tool?.driver?.rules[obj.ruleIndex]?.helpUri;
 
                         // Fixing if a string is longer than 32767 characters
                         
